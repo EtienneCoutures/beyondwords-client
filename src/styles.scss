@@ -2,3 +2,37 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* color */
+[blue-color] {
+    color: #2f4d6d;
+}
+[lightBlue-color] {
+    color: #b5e1e7;
+}
+[yellow-color] {
+    color: #ece0a3;
+}
+[white-color] {
+    color: white;
+}
+
+/* bg color */
+[blue-background] {
+    background-color:  #2f4d6d;
+}
+[lightBlue-background] {
+    background-color: #b5e1e7;
+}
+[yellow-background] {
+    background-color: #ece0a3;
+}
+[white-background] {
+    background-color: white;
+}
+
+/* toolkit */
+
+[clickable]{
+   cursor: pointer; 
+}

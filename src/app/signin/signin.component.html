@@ -1,0 +1,29 @@
+    
+    <mat-card style="padding: 2%;min-width: 20%;min-height: 30%;max-width: 50%;max-height: 50%;" class="centered">
+        <mat-card-title style="margin-bottom: 20px">Se connecter</mat-card-title>
+        <mat-card-content>
+            <p>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Identifiant</mat-label>
+                    <input matInput placeholder="Votre identifiant" [formControl]="login">
+                    <!--<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Hint</mat-hint>-->
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Mot de passe</mat-label>
+                    <input matInput placeholder="Votre mot de passe" [formControl]="password" type="password">
+                    <!--<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Hint</mat-hint>-->
+                </mat-form-field>
+            </p>
+                <div style="width: 100%;display: flex;justify-content: end;">
+                    <button mat-raised-button routerLink="/dashboard">Connexion</button>
+                </div>
+        </mat-card-content>
+        <mat-card-footer>
+            <button clickable style="border:none;background-color: white;">Mot de passe oublié?</button>  
+        </mat-card-footer>
+    </mat-card>
+<button mat-button color="primary" (click)="helper.goBack()">Retour</button>
