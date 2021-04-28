@@ -1,0 +1,39 @@
+<mat-grid-list cols='2' rows='2'>
+    <div style="width: 100%;text-align: center;margin: 10px 0 10px 0">
+        <table mat-table style="width: 100%;">
+            <tr mat-row>
+                <mat-label xxlarge-text blue-color style="margin: 5px">{{title}}</mat-label>
+            </tr>
+            <tr mat-row>
+                <div style="width: 20%;margin: 10px 0 10px 0;float: right;margin-right: 5%;">
+                    <mat-progress-bar mode="determinate" value="25" class="progress-bar"></mat-progress-bar>
+                    <mat-label large-text blue-color>{{title}} - 25% complété</mat-label>
+                </div>
+            </tr>
+        </table>
+    </div>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <table mat-table style="width: 100%;text-align: center;font-style: bold;margin: 10px;" blue-color>
+            <tr mat-row>
+                <mat-label xlarge-text>Bienvenue!</mat-label>
+            </tr>
+            <tr mat-row style="font-size: large;">
+                <mat-label>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum</mat-label>
+            </tr>
+            <tr mat-row>
+                <button mat-raised-button>Test d'évaluation initiale</button>
+                <button mat-raised-button>Prendre rendez-vous avec un formateur</button>
+            </tr>
+        </table>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <img mat-card-image style="margin: 5px;max-width: 75%;" src="assets/img/logo.png" alt="Photo of a Shiba Inu">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+
+    </mat-grid-tile>
+</mat-grid-list>

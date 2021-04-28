@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatToolbarModule} from '@angular/material/toolbar'; 
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +10,10 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onScroll(): void {
+    console.log("scrol")
   }
 
 }

@@ -10,14 +10,24 @@ import { FooterComponent } from './footer/footer.component';
 
 import { SigninComponent } from './signin/signin.component'; 
 
+import {MatChipsModule} from '@angular/material/chips'; 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatCardModule} from '@angular/material/card'; 
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input'; 
+import {MatProgressBarModule} from '@angular/material/progress-bar'; 
+import {MatIconModule} from '@angular/material/icon'; 
+import {MatGridListModule} from '@angular/material/grid-list'; 
 
-import { HelperService } from './services/helper.service';
+
+import { HelperService } from '../services/helper.service';
+import { LessonComponent } from './lesson/lesson.component';
+
+import { CategorieItemComponent } from '../components/categorie-item/categorie-item.component';
+import { UnitItemComponent } from '../components/unit-item/unit-item.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +36,10 @@ import { HelperService } from './services/helper.service';
     HeaderComponent,
     FooterComponent,
     SigninComponent,
-    
+    LessonComponent,
+    CategorieItemComponent,
+    UnitItemComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +50,11 @@ import { HelperService } from './services/helper.service';
     MatCardModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatChipsModule,
+    MatProgressBarModule,
+    MatIconModule,
+    MatGridListModule
   ],
   providers: [
     HelperService

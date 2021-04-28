@@ -1,1 +1,22 @@
+<table mat-table style="width: 100%;text-align: center;font-style: bold;margin: 10px;" blue-color>
+    <tr mat-row style="font-size: x-large">
+        <mat-label>Bienvenue !</mat-label>
+    </tr>
+    <tr mat-row style="font-size: large;">
+        <mat-label>Choisissez un cours pour démarrer votre apprentissage</mat-label>
+    </tr>
+</table>
+<div  style="margin-left: 3%" >
+    <mat-chip-list aria-label="Fish selection">
+        <mat-chip *ngFor="let filter of filters" class="filter">{{filter}}</mat-chip>
+    </mat-chip-list>
+</div>
+
+<table mat-table style="margin: 2%">
+    <tr mat-row style="display: inline-flex;">
+        <categorie-item *ngFor="let categorie of categories" [categorie]="categorie"></categorie-item>
+    </tr>
+</table>
+
+
 <button mat-button color="primary" routerLink="/signin">Connexion</button>
