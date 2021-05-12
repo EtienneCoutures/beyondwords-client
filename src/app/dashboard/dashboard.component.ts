@@ -27,7 +27,8 @@ export class DashboardComponent implements OnInit {
     { id: 1, title: "English", img: "assets/img/logo.png", progression: 0 },
     { id: 2, title: "Espanol", img: "assets/img/logo.png", progression: 40 },
     { id: 3, title: "Excel", img: "assets/img/logo.png", progression: 100},
-    { id: 4, title: "Réseaux sociaux", img: "assets/img/logo.png", progression: 100 }
+    { id: 4, title: "Réseaux sociaux", img: "assets/img/logo.png", progression: 100 },
+    { id: 5, title: "Autre", img: "assets/img/logo.png", progression: 0 },
   ];
   constructor() { }
 

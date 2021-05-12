@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Unit } from 'src/models/unit.model';
 
 @Component({
-  selector: 'app-unit-item',
+  selector: 'unit-item',
   templateUrl: './unit-item.component.html',
   styleUrls: ['./unit-item.component.scss']
 })
