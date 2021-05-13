@@ -12,20 +12,20 @@ import { Unit } from 'src/models/unit.model';
 export class LessonComponent implements OnInit {
 
   id: number = -1;
-  title: string;
+  title: string = "";
 
   titles: Array<{ id: number, value: string }> = [
-    { id: 1, value: "English" },
-    { id: 2, value: "Espanol" },
-    { id: 3, value: "Excel" },
-    { id: 4, value: "Réseaux sociaux" }
+    { id: 0, value: "English" },
+    { id: 1, value: "Espanol" },
+    { id: 2, value: "Excel" },
+    { id: 3, value: "Réseaux sociaux" }
   ];
 
   units: Array<Unit> = [
-    { id: 1, img: "assets/img/logo.png", label: "Nice to meet you", index: 0, finished: true },
-    { id: 2, img: "assets/img/logo.png", label: "On holiday", index: 1, finished: false },
-    { id: 3, img: "assets/img/logo.png", label: "At the restaurant", index: 2, finished: false },
-    { id: 4, img: "assets/img/logo.png", label: "Jobs", index: 3, finished: false },
+    { id: 0, img: "assets/img/logo.png", label: "Nice to meet you", index: 1, finished: true },
+    { id: 1, img: "assets/img/logo.png", label: "On holiday", index: 2, finished: false },
+    { id: 2, img: "assets/img/logo.png", label: "At the restaurant", index: 3, finished: false },
+    { id: 3, img: "assets/img/logo.png", label: "Jobs", index: 4, finished: false },
 ];
 
 
@@ -35,14 +35,14 @@ export class LessonComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.id = Number(this.route.snapshot.paramMap.get('l_id'));
+    if (this.id === -1){
+      this.router.navigateByUrl('/404')
+    }
     this.titles.forEach(title => {
       if (title.id === this.id)
         this.title = title.value;
     })
-    if (!this.title){
-      this.router.navigateByUrl('/404')
-    }
   }
 
 }

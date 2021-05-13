@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { NotFoundComponent } from './not-found/not-found.component';
+import { UnitComponent } from './unit/unit.component';
 import { SigninComponent } from './signin/signin.component'; 
 
 import {MatChipsModule} from '@angular/material/chips'; 
@@ -27,7 +28,9 @@ import { LessonComponent } from './lesson/lesson.component';
 
 import { CategorieItemComponent } from '../components/categorie-item/categorie-item.component';
 import { UnitItemComponent } from '../components/unit-item/unit-item.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { UnitContentItemComponent } from '../components/unit-content-item/unit-content-item.component';
+
+import { SafeUrlPipe } from '../pipes/safe-url.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     LessonComponent,
     CategorieItemComponent,
     UnitItemComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UnitComponent,
+    UnitContentItemComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,

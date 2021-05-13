@@ -1,7 +1,7 @@
 export class Unit {
     id: number;
+    index: number;
     img: string; 
     label: string;
-    index: number;
     finished: boolean;
 }

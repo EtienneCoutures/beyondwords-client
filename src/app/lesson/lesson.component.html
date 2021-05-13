@@ -34,6 +34,6 @@
         <img mat-card-image style="margin: 5px;max-width: 75%;" src="assets/img/logo.png">
     </mat-grid-tile>
     <mat-grid-tile [colspan]="2" [rowspan]="1">
-        <unit-item *ngFor="let unit of units" [unit]="unit" ></unit-item>
+        <unit-item *ngFor="let unit of units" [unit]="unit" routerLink="/lesson/{{id}}/unit/{{unit.id}}"></unit-item>
     </mat-grid-tile>
 </mat-grid-list>
