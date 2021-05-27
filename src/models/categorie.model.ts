@@ -3,5 +3,8 @@ export class Categorie {
     index: number;
     title: string;
     img: string;
-    progression: number
+    progression: number;
+    label: string;
+    eval_intro: string;
+    eval_mid: string;
 }

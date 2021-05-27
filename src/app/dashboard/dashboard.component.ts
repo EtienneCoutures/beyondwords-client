@@ -24,11 +24,11 @@ export class DashboardComponent implements OnInit {
   ];
 
   categories: Array<Categorie> = [
-    { id: 0, index: 1, title: "English", img: "assets/img/logo.png", progression: 0 },
-    { id: 1, index: 2, title: "Espanol", img: "assets/img/logo.png", progression: 40 },
-    { id: 2, index: 3, title: "Excel", img: "assets/img/logo.png", progression: 100},
-    { id: 3, index: 4, title: "Réseaux sociaux", img: "assets/img/logo.png", progression: 100 },
-    { id: 4, index: 5, title: "Autre", img: "assets/img/logo.png", progression: 0 },
+    { id: 0, index: 1, title: "English", label: "", img: "assets/img/logo.png", progression: 0, eval_intro: "", eval_mid: ""},
+    { id: 1, index: 2, title: "Espanol", label: "", img: "assets/img/logo.png", progression: 40, eval_intro: "", eval_mid: ""},
+    { id: 2, index: 3, title: "Excel", label: "", img: "assets/img/logo.png", progression: 100, eval_intro: "", eval_mid: ""},
+    { id: 3, index: 4, title: "Réseaux sociaux", label: "", img: "assets/img/logo.png", progression: 100, eval_intro: "", eval_mid: ""},
+    { id: 4, index: 5, title: "Autre", label: "", img: "assets/img/logo.png", progression: 0, eval_intro: "", eval_mid: ""},
   ];
   constructor() { }
 
