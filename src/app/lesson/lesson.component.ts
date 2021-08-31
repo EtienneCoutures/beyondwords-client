@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Unit } from 'src/models/unit.model';
+import { Categorie } from 'src/models/categorie.model';
+import { CategorieService } from 'src/services/categorie.service';
+import { baseUrl } from 'src/environments/drive';
 
 @Component({
   selector: 'app-lesson',
@@ -8,11 +11,13 @@ import { Unit } from 'src/models/unit.model';
   styleUrls: ['./lesson.component.scss']
 })
 
-
 export class LessonComponent implements OnInit {
 
   id: number = -1;
   title: string = "";
+  categorie: Categorie = <Categorie>{};
+  baseUrl: string = baseUrl;
+
 
   titles: Array<{ id: number, value: string }> = [
     { id: 0, value: "English" },
@@ -21,24 +26,29 @@ export class LessonComponent implements OnInit {
     { id: 3, value: "Réseaux sociaux" }
   ];
 
-  units: Array<Unit> = [
-    { id: 0, img: "assets/img/logo.png", label: "Nice to meet you", index: 1, finished: true },
-    { id: 1, img: "assets/img/logo.png", label: "On holiday", index: 2, finished: false },
-    { id: 2, img: "assets/img/logo.png", label: "At the restaurant", index: 3, finished: false },
-    { id: 3, img: "assets/img/logo.png", label: "Jobs", index: 4, finished: false },
-];
+  units: Array<Unit> =<Unit[]>[];
 
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
-
-  ngOnInit(): void {
+    private router: Router,
+    private categorieService: CategorieService
+  ) {
     this.id = Number(this.route.snapshot.paramMap.get('l_id'));
-    if (this.id === -1){
+    if (this.id < 0) {
       this.router.navigateByUrl('/404')
     }
+    this.categorieService.getCat(this.id).subscribe(rep => {
+      this.categorie = rep;
+      this.units = this.categorie.Units;
+      console.log("la cat : ", this.categorie)
+    }, err => {
+      console.log('error component dashboard :', err)
+    });
+  }
+
+  ngOnInit(): void {
+
     this.titles.forEach(title => {
       if (title.id === this.id)
         this.title = title.value;

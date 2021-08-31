@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Categorie } from 'src/models/categorie.model';
+import { UserCoreService } from 'src/services/user-core.service';
 
 export interface courses {
   id: number,
@@ -23,15 +24,19 @@ export class DashboardComponent implements OnInit {
     "Certifications"
   ];
 
-  categories: Array<Categorie> = [
-    { id: 0, index: 1, title: "English", label: "", img: "assets/img/logo.png", progression: 0, eval_intro: "", eval_mid: ""},
-    { id: 1, index: 2, title: "Espanol", label: "", img: "assets/img/logo.png", progression: 40, eval_intro: "", eval_mid: ""},
-    { id: 2, index: 3, title: "Excel", label: "", img: "assets/img/logo.png", progression: 100, eval_intro: "", eval_mid: ""},
-    { id: 3, index: 4, title: "Réseaux sociaux", label: "", img: "assets/img/logo.png", progression: 100, eval_intro: "", eval_mid: ""},
-    { id: 4, index: 5, title: "Autre", label: "", img: "assets/img/logo.png", progression: 0, eval_intro: "", eval_mid: ""},
-  ];
-  constructor() { }
+  categories: Array<Categorie> = [];
 
-  ngOnInit(): void {
+  constructor(
+    public userCoreService: UserCoreService
+  ) { 
+    this.userCoreService.getUserCategories().subscribe(rep => {
+      this.categories = rep;
+    }, err => {
+      console.log('error component dashboard :', err)
+    });
+    
+  }
+
+  async ngOnInit(): Promise<void> { 
   }
 }

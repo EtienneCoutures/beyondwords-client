@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Unit } from 'src/models/unit.model';
+import { baseUrl } from 'src/environments/drive';
 
 @Component({
   selector: 'unit-item',
@@ -9,6 +10,9 @@ import { Unit } from 'src/models/unit.model';
 export class UnitItemComponent implements OnInit {
 
   @Input() unit: Unit;
+  @Input() number: number;
+
+  baseUrl: string = baseUrl;
 
   constructor() { }
 

@@ -1,4 +1,4 @@
-<mat-grid-list cols='2' rows='2'>
+<mat-grid-list cols='2' rowHeight="2:1">
     <div style="width: 100%;text-align: center;margin: 10px 0 10px 0">
         <table mat-table style="width: 100%;">
             <tr mat-row>
@@ -12,7 +12,7 @@
             </tr>
         </table>
     </div>
-    <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <mat-grid-tile [colspan]="2">
         <table mat-table style="width: 100%;text-align: center;font-style: bold;margin: 10px;" blue-color>
             <tr mat-row style="font-size: large;" inline-flex>
                 <unit-content-item *ngFor="let content of contents" [unit_content]="content" (click)="randomDisplay()">
@@ -21,18 +21,18 @@
         </table>
     </mat-grid-tile>
     <div id="video" *ngIf="type === 'video'">
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-grid-tile [colspan]="1">
             <iframe width="100%" height="300" [src]="video | safeUrl" style="width: 80%;"></iframe>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-grid-tile [colspan]="1">
             <iframe width="100%" height="300" [src]="video | safeUrl" style="width: 80%;"></iframe>
         </mat-grid-tile>
     </div>
     <div id="pdf" *ngIf="type === 'pdf'">
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-grid-tile [colspan]="1">
             <iframe width="100%" height="300" [src]="pdf | safeUrl" style="width: 80%;"></iframe>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-grid-tile [colspan]="1">
             <iframe width="100%" height="300" [src]="pdf | safeUrl" style="width: 80%;"></iframe>
         </mat-grid-tile>
     </div>

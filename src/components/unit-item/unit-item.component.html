@@ -1,16 +1,16 @@
-<mat-card class="unit-card" clickable>
+<mat-card class="unit-card" clickable  matRipple>
     <mat-card-header style="margin: 0; margin-bottom: 5px;display: block;text-align: right;">
         <div *ngIf="unit.finished" style="display:flex; justify-content: space-between;">
             <mat-label>Complété</mat-label>
             <mat-icon>check_circle_outline</mat-icon>
         </div>
     </mat-card-header>
-    <mat-card-content>
-        <img mat-card-image style="margin: auto;max-width: 100%;" [src]="unit.img">
-        <mat-card-title style="text-align: center;margin:5px">{{unit.label}}</mat-card-title>
+    <mat-card-content style="text-align: center;margin: 5%">
+        <mat-card-title style="text-align: center;margin:5px">Unit {{number}}</mat-card-title>
+        <img mat-card-image class="unit-img" [src]="baseUrl + unit.img">
     </mat-card-content>
     <mat-card-actions>
         <mat-label>Progression : </mat-label>
-        <mat-progress-bar mode="determinate" value="unit.completion"></mat-progress-bar>
+        <mat-progress-bar mode="determinate" value="unit.completion" class="progress-bar"></mat-progress-bar>
     </mat-card-actions>
 </mat-card>

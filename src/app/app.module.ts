@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar'; 
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatGridListModule} from '@angular/material/grid-list'; 
-
+import {MatRippleModule} from '@angular/material/core'; 
 
 import { HelperService } from '../services/helper.service';
 import { LessonComponent } from './lesson/lesson.component';
@@ -31,6 +32,7 @@ import { UnitItemComponent } from '../components/unit-item/unit-item.component';
 import { UnitContentItemComponent } from '../components/unit-content-item/unit-content-item.component';
 
 import { SafeUrlPipe } from '../pipes/safe-url.pipe';
+import { AssistanceComponent } from './assistance/assistance.component';
 
 @NgModule({
   declarations: [
@@ -40,16 +42,19 @@ import { SafeUrlPipe } from '../pipes/safe-url.pipe';
     FooterComponent,
     SigninComponent,
     LessonComponent,
+    AssistanceComponent,
     CategorieItemComponent,
     UnitItemComponent,
     NotFoundComponent,
     UnitComponent,
     UnitContentItemComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -60,7 +65,8 @@ import { SafeUrlPipe } from '../pipes/safe-url.pipe';
     MatChipsModule,
     MatProgressBarModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatRippleModule
   ],
   providers: [
     HelperService
