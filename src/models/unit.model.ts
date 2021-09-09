@@ -1,3 +1,5 @@
+import { UnitContent } from "./unit-content.model";
+
 export class Unit {
     id: number;
     index: number;
@@ -5,6 +7,7 @@ export class Unit {
     title: string;
     label: string;
     finished: boolean;
+    contents?: Array<UnitContent>;
     createdAt?: Date;
     updatedAt?: Date;
 }

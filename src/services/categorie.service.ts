@@ -16,10 +16,9 @@ export class CategorieService {
 
 
   public getCat(id: number): Observable<any> {
-    console.log("l'id : ", id)
     return this.http.get<Array<Categorie>>(env.api + '/categories/' + id).pipe(
       catchError(err => {
-        console.log("error user : ", err)
+        console.log("error cat : ", err)
         return err
       })
     )}
@@ -28,7 +27,7 @@ export class CategorieService {
   public getCatUnits(id: number): Observable<any> {
     return this.http.get<Array<Unit>>(env.api + '/categories/' + id + '/units').pipe(
       catchError(err => {
-        console.log("error user : ", err)
+        console.log("error catunit : ", err)
         return err
       })
     )}
