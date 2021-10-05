@@ -1,7 +1,7 @@
-<mat-card class="categorie-card" clickable routerLink="/lesson/{{categorie.id}}" matRipple>
+<mat-card class="categorie-card" clickable (click)="onClick()" matRipple>
     <mat-card-header style="margin: 0; margin-bottom: 5px;display: block;text-align: right;">
-        <mat-icon *ngIf="categorie.id === 2" class="outlined">check_box</mat-icon>
-        <mat-icon *ngIf="categorie.id !== 2" class="outlined">lock</mat-icon>
+        <mat-icon *ngIf="finished" class="outlined">check_box</mat-icon>
+        <mat-icon *ngIf="locked" class="outlined">lock</mat-icon>
     </mat-card-header>
     <mat-card-content>
         <img mat-card-image class="categorie-img" [src]="baseUrl + categorie.img">

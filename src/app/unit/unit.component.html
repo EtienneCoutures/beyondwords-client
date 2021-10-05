@@ -15,22 +15,18 @@
     <mat-grid-tile [colspan]="2">
         <table mat-table style="width: 100%;text-align: center;font-style: bold;margin: 10px;" blue-color>
             <tr mat-row style="font-size: large;" inline-flex>
-                <unit-content-item *ngFor="let content of unit.contents" [unit_content]="content"
-                    (click)="displayContent(content)">
+                <unit-content-item *ngFor="let course of unit.courses" [unit_content]="course"
+                    (click)="displayContent(course)">
                 </unit-content-item>
             </tr>
         </table>
     </mat-grid-tile>
-    <div *ngIf="type == 'video'">
-        <mat-grid-tile [colspan]="1">
-            <iframe width="100%" height="300" [src]="url | safeUrl" style="width: 80%;"></iframe>
-        </mat-grid-tile>
-    </div>
-    <div *ngIf="type == 'pdf'">
-        <mat-grid-tile [colspan]="1">
-            <object data="(url | safeUrl)" type="application/pdf">
-                <embed src="(url | safeUrl)" type="application/pdf" />
-            </object>
-        </mat-grid-tile>
-    </div>
+ 
 </mat-grid-list>
+<div style="margin: 15px;margin-bottom: 5%;">
+    <div *ngFor="let content of contents" style="margin: 10px;text-align: center;">
+            <iframe *ngIf="content.type == 'video'" width="560" height="315" [src]="content.url | safeUrl" style="margin: auto"></iframe>
+            <object *ngIf="content.type == 'pdf'" [data]="content.url | safeUrl" type="application/pdf" width="100%" height="auto"></object>
+            <span *ngIf="content.type == 'txt'">{{content.label}}</span>
+    </div>
+</div>

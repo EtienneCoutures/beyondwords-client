@@ -36,6 +36,18 @@ export class UserService {
     )
   }
 
+  public getOtherCatByUserId(id: number): Observable<any> {
+    return this.http.get<Categorie[]>(env.api + '/users/' + id + '/others').pipe(map(result=> {
+      console.log("result : ", result)
+      return result;
+    }),
+      catchError(err => {
+        console.log("error getCatByOthersId : ", err)
+        return err
+      })
+    )
+  }
+
 
 
 }

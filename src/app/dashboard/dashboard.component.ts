@@ -25,12 +25,20 @@ export class DashboardComponent implements OnInit {
   ];
 
   categories: Array<Categorie> = [];
+  others: Array<Categorie> = [];
 
   constructor(
     public userCoreService: UserCoreService
   ) { 
     this.userCoreService.getUserCategories().subscribe(rep => {
       this.categories = rep;
+    }, err => {
+      console.log('error component dashboard :', err)
+    });
+
+    this.userCoreService.getOthersCategories().subscribe(rep => {
+      this.others = rep;
+      console.log(this.others)
     }, err => {
       console.log('error component dashboard :', err)
     });

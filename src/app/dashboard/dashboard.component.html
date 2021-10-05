@@ -11,9 +11,15 @@
         <mat-chip *ngFor="let filter of filters" class="filter">{{filter}}</mat-chip>
     </mat-chip-list>
 </div>
-
-<table mat-table>
-    <tr mat-row inline-flex>
-        <categorie-item *ngFor="let categorie of categories" [categorie]="categorie"></categorie-item>
-    </tr>
-</table>
+<div style="margin: 5%">
+    <table mat-table>
+        <tr mat-row inline-flex>
+            <categorie-item *ngFor="let categorie of categories" [categorie]="categorie"></categorie-item>
+        </tr>
+    </table>
+    <table mat-table>
+        <tr mat-row inline-flex>
+            <categorie-item *ngFor="let categorie of others" [categorie]="categorie" [locked]="true"></categorie-item>
+        </tr>
+    </table>
+</div>

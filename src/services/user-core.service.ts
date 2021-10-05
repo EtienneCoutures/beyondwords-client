@@ -62,4 +62,8 @@ export class UserCoreService {
     return this.userService.getCatByUserId(this.getUserId());
   }
 
+  public getOthersCategories(): Observable<any> {
+    return this.userService.getOtherCatByUserId(this.getUserId());
+  }
+
 }
