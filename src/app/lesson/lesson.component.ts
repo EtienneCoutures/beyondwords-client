@@ -42,6 +42,7 @@ export class LessonComponent implements OnInit {
       this.categorie = rep;
       this.units = this.categorie.Units;
       console.log("la cat : ", this.categorie)
+      console.log("les units : ", this.categorie.Units)
     }, err => {
       console.log('error component dashboard :', err)
     });

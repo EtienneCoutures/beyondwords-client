@@ -15,6 +15,7 @@ export class CategorieItemComponent implements OnInit {
   @Input() locked?: boolean;
   @Input() finished?: boolean;
 
+
   baseUrl: string = baseUrl;
   
   constructor(
@@ -26,7 +27,7 @@ export class CategorieItemComponent implements OnInit {
   }
 
   onClick() {
-    return this.locked ? this.dialog.open(LockedMessage) : this.helper.goToPage('/lesson/{{categorie.id}}'); 
+    return this.locked ? this.dialog.open(LockedMessage) : this.helper.goToPage(`/lesson/${this.categorie.id}`); 
   }
 
 }

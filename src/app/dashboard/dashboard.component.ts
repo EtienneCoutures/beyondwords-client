@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Categorie } from 'src/models/categorie.model';
+import { Tag } from 'src/models/tag.model';
 import { UserCoreService } from 'src/services/user-core.service';
+import { CategorieService } from 'src/services/categorie.service';
+import { Tagcats } from 'src/models/tagcats.model';
 
 export interface courses {
   id: number,
@@ -16,35 +19,47 @@ export interface courses {
 })
 export class DashboardComponent implements OnInit {
 
-  filters: Array<string> = [
-    "Langues",
-    "Bureautique",
-    "Digital",
-    "Communication",
-    "Certifications"
-  ];
 
+  tags: Array<Tag> = [];
+  tagCats: Array<Tagcats> = [];
+  filter: number = 0;
   categories: Array<Categorie> = [];
   others: Array<Categorie> = [];
 
+
   constructor(
-    public userCoreService: UserCoreService
-  ) { 
+    public userCoreService: UserCoreService,
+    private categorieService: CategorieService
+  ) {
     this.userCoreService.getUserCategories().subscribe(rep => {
       this.categories = rep;
     }, err => {
       console.log('error component dashboard :', err)
     });
-
     this.userCoreService.getOthersCategories().subscribe(rep => {
       this.others = rep;
-      console.log(this.others)
     }, err => {
       console.log('error component dashboard :', err)
     });
-    
+    this.categorieService.getTags().subscribe(rep => {
+      this.tags = rep;
+      console.log("tags :", rep)
+    }, err => {
+      console.log('error component dashboard :', err)
+    });
+    this.categorieService.getCatTags().subscribe(rep => {
+      this.tagCats = rep;
+      console.log("tagcats :", rep)
+    }, err => {
+      console.log('error component dashboard :', err)
+    });
   }
 
-  async ngOnInit(): Promise<void> { 
+  async ngOnInit(): Promise<void> {
   }
+
+  selectTag(id: number): void {
+    this.filter = (this.filter == id ? 0 : id);
+  }
+
 }

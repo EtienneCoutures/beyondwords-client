@@ -26,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LayoutModule } from '@angular/cdk/layout';
 
 import { HelperService } from '../services/helper.service';
 import { LessonComponent } from './lesson/lesson.component';
@@ -71,7 +72,9 @@ import { AssistanceComponent } from './assistance/assistance.component';
     MatGridListModule,
     MatRippleModule,
     MatDialogModule,
-    PdfViewerModule
+    LayoutModule,
+    PdfViewerModule,
+
   ],
   providers: [
     HelperService

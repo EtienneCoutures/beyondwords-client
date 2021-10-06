@@ -7,19 +7,20 @@
     </tr>
 </table>
 <div class="chip-list">
-    <mat-chip-list aria-label="Fish selection">
-        <mat-chip *ngFor="let filter of filters" class="filter">{{filter}}</mat-chip>
+    <mat-chip-list aria-label="Fish selection">        
+        <mat-chip (click)="selectTag(0)" class="filter">Tous</mat-chip>
+        <mat-chip *ngFor="let tag of tags" (click)="selectTag(tag.id)"class="filter">{{tag.label}}</mat-chip>
     </mat-chip-list>
 </div>
 <div style="margin: 5%">
     <table mat-table>
         <tr mat-row inline-flex>
-            <categorie-item *ngFor="let categorie of categories" [categorie]="categorie"></categorie-item>
+            <categorie-item *ngFor="let categorie of categories" [style.display]="!filter || filter == categorie.id ? 'block' : 'none'" [categorie]="categorie"></categorie-item>
         </tr>
     </table>
     <table mat-table>
         <tr mat-row inline-flex>
-            <categorie-item *ngFor="let categorie of others" [categorie]="categorie" [locked]="true"></categorie-item>
+            <categorie-item *ngFor="let categorie of others" [style.display]="!filter || filter == categorie.id ? 'block' : 'none'" [categorie]="categorie" [locked]="true"></categorie-item>
         </tr>
     </table>
 </div>

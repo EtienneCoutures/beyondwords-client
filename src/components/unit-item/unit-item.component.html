@@ -6,7 +6,8 @@
         </div>
     </mat-card-header>
     <mat-card-content style="text-align: center;margin: 5%">
-        <mat-card-title style="text-align: center;margin:5px">Unit {{number}}</mat-card-title>
+        <mat-card-subtitle style="text-align: center;margin:5px">Unit {{number}}</mat-card-subtitle>
+        <mat-card-title style="text-align: center;margin:5px">{{unit.title}}</mat-card-title>
         <img mat-card-image class="unit-img" [src]="baseUrl + unit.img">
     </mat-card-content>
     <mat-card-actions>

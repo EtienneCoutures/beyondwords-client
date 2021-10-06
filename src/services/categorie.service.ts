@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Unit } from 'src/models/unit.model';
+import { Tag } from 'src/models/tag.model';
 import { catchError } from 'rxjs/operators';
 import { env } from 'src/environments/';
 import { Categorie } from 'src/models/categorie.model';
+import { Tagcats } from 'src/models/tagcats.model';
 
 
 @Injectable({
@@ -21,8 +23,22 @@ export class CategorieService {
         console.log("error cat : ", err)
         return err
       })
-    )}
+    )
+  }
 
+  public getTags(): Observable<any> {
+    return this.http.get<Array<Tag>>(env.api + '/tags/').pipe(catchError(err => {
+      console.log("error tag :", err)
+      return err;
+    }))
+  }
+
+  public getCatTags(): Observable<any> {
+    return this.http.get<Array<Tagcats>>(env.api + '/tagcats/').pipe(catchError(err => {
+      console.log("error tagcat :", err)
+      return err;
+    }))
+  }
 
   public getCatUnits(id: number): Observable<any> {
     return this.http.get<Array<Unit>>(env.api + '/categories/' + id + '/units').pipe(
