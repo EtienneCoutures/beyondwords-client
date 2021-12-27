@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserCoreService } from 'src/services/user-core.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   logo: string = "assets/img/logo.png"
-  constructor() { 
+  constructor(
+    public userCoreService: UserCoreService,
+  ) {
 
   }
 

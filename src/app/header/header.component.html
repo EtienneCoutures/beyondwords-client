@@ -1,4 +1,13 @@
 <mat-toolbar blue-background>
     <img [src]="logo" class="logo" clickable routerLink="/">
     <span yellow-color class="moto">Vous former, c'est notre métier</span>
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="userCoreService.isAuth()">{{userCoreService.getUserFullname()}}
+        <mat-icon style="color: white">settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+
 </mat-toolbar>

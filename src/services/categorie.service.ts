@@ -33,13 +33,6 @@ export class CategorieService {
     }))
   }
 
-  public getCatTags(): Observable<any> {
-    return this.http.get<Array<Tagcats>>(env.api + '/tagcats/').pipe(catchError(err => {
-      console.log("error tagcat :", err)
-      return err;
-    }))
-  }
-
   public getCatUnits(id: number): Observable<any> {
     return this.http.get<Array<Unit>>(env.api + '/categories/' + id + '/units').pipe(
       catchError(err => {

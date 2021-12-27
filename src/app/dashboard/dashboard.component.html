@@ -1,4 +1,4 @@
-<table mat-table style="width: 100%;text-align: center;font-style: bold;" blue-color>
+<table mat-table style="width: 100%;text-align: center;font-style: bold;margin: 1%" blue-color>
     <tr mat-row style="font-size: x-large">
         <mat-label>Bienvenue {{userCoreService.getUserFullname()}}!</mat-label>
     </tr>
@@ -12,15 +12,18 @@
         <mat-chip *ngFor="let tag of tags" (click)="selectTag(tag.id)"class="filter">{{tag.label}}</mat-chip>
     </mat-chip-list>
 </div>
-<div style="margin: 5%">
+<div style="margin: 2%">
     <table mat-table>
         <tr mat-row inline-flex>
-            <categorie-item *ngFor="let categorie of categories" [style.display]="!filter || filter == categorie.id ? 'block' : 'none'" [categorie]="categorie"></categorie-item>
+            <div>
+                
+            </div>
+            <categorie-item *ngFor="let categorie of categories" [style.display]="!filter || filter == categorie.TagId ? 'block' : 'none'" [categorie]="categorie"></categorie-item>
         </tr>
     </table>
     <table mat-table>
         <tr mat-row inline-flex>
-            <categorie-item *ngFor="let categorie of others" [style.display]="!filter || filter == categorie.id ? 'block' : 'none'" [categorie]="categorie" [locked]="true"></categorie-item>
+            <categorie-item *ngFor="let categorie of others" [style.display]="!filter || filter == categorie.TagId ? 'block' : 'none'" [categorie]="categorie" [locked]="true"></categorie-item>
         </tr>
     </table>
 </div>

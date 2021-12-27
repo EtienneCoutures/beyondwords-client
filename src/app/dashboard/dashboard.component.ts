@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit {
     private categorieService: CategorieService
   ) {
     this.userCoreService.getUserCategories().subscribe(rep => {
+      console.log("cat : ", rep)
       this.categories = rep;
     }, err => {
       console.log('error component dashboard :', err)
@@ -47,19 +48,14 @@ export class DashboardComponent implements OnInit {
     }, err => {
       console.log('error component dashboard :', err)
     });
-    this.categorieService.getCatTags().subscribe(rep => {
-      this.tagCats = rep;
-      console.log("tagcats :", rep)
-    }, err => {
-      console.log('error component dashboard :', err)
-    });
   }
-
+  
   async ngOnInit(): Promise<void> {
   }
 
   selectTag(id: number): void {
     this.filter = (this.filter == id ? 0 : id);
+    console.log("filter : ", this.filter)
   }
 
 }

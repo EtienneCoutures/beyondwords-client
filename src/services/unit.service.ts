@@ -16,7 +16,7 @@ export class UnitService {
 
 
   public getUnit(id: number): Observable<any> {
-    return this.http.get<Array<Unit>>(env.api + '/unit/' + id).pipe(
+    return this.http.get<Array<Unit>>(env.api + '/units/' + id).pipe(
       catchError(err => {
         console.log("error unit : ", err)
         return err

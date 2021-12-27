@@ -1,15 +1,5 @@
 <mat-grid-list cols='2' rowHeight="2:1">
     
-
-<div layout="row">
-    <div flex="">First item in row</div>
-    <div flex="">Second item in row</div>
-  </div>
-  <div layout="column">
-    <div flex="">First item in column</div>
-    <div flex="">Second item in column</div>
-  </div>
-  
   
     <div style="width: 100%;text-align: center;margin: 10px 0 10px 0">  
         <table mat-table style="width: 100%;">
@@ -30,7 +20,7 @@
     <mat-grid-tile [colspan]="2">
         <table mat-table style="width: 100%;text-align: center;font-style: bold;margin: 10px;" blue-color>
             <tr mat-row style="font-size: large;" inline-flex>
-                <unit-content-item *ngFor="let course of unit.courses" [unit_content]="course"
+                <unit-content-item *ngFor="let course of unit.Unit_Contents" [unit_content]="course"
                     (click)="displayContent(course)">
                 </unit-content-item>
             </tr>
@@ -38,9 +28,10 @@
     </mat-grid-tile>
  
 </mat-grid-list>
-<div style="margin: 15px;margin-bottom: 5%;">
-    <div *ngFor="let content of contents" style="margin: 10px;text-align: center;">
-            <iframe *ngIf="content.type == 'video'" width="560" height="315" [src]="content.url | safeUrl" style="margin: auto"></iframe>
+<div style="margin: 15px;margin-bottom: 5%;" *ngIf="contents.length">
+    <div *ngFor="let content of contents; let i = index" style="margin: 10px;text-align: center;">
+            <h1>Contenu numero {{i + 1}}</h1>
+            <iframe *ngIf="content.type == 'video'" width="560" height="315" [src]="content.url | safeUrl" style="margin: auto"></iframe>
             <object *ngIf="content.type == 'pdf'" [data]="content.url | safeUrl" type="application/pdf" width="100%" height="auto"></object>
             <span *ngIf="content.type == 'txt'">{{content.label}}</span>
     </div>

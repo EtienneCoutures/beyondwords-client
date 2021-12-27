@@ -7,7 +7,7 @@ export class Unit {
     title: string;
     label: string;
     finished: boolean;
-    courses?: Array<UnitContent>;
+    Unit_Contents?: Array<UnitContent>;
     createdAt?: Date;
     updatedAt?: Date;
 }
